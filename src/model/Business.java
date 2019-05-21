@@ -8,20 +8,23 @@
  * @version: 20 MAY 2019
  * ˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜
  */
+package model;
+
 
 public class Business{
 
 	//DOMAIN FOR TYPE OF ORGANIZATION
-	public final static String FHFF = "Farming, hunt, forestry and fishing"
-	public final static String EMQ = "Explotation of mines and quarries"
-	public final static String EMQ = "Explotation of mines and quarries"
-	public final static String MI = "Manufacturing industry"
-	public final static String EGS = "Electricity, gas and steam"
-	public final static String C = "Construction"
-	public final static String WR =  "Wholesale and retail"
-	public final static String TSC = "Transportation, storage and communications"
-	public final static String FSIRES2C = "Financial statements, insurance, real estate, service to companies"
-	public final static String CS = "Communal, social"
+	public final static String FHFF = "Farming, hunt, forestry and fishing";
+	public final static String EMQ = "Explotation of mines and quarries";
+	public final static String MI = "Manufacturing industry";
+	public final static String EGS = "Electricity, gas and steam";
+	public final static String C = "Construction";
+	public final static String WR =  "Wholesale and retail";
+	public final static String TSC = "Transportation, storage and communications";
+	public final static String FSIRES2C = "Financial statements, insurance, real estate, service to companies";
+	public final static String CS = "Communal, social";
+
+
 
 	//ATTRIBUTES
 
@@ -82,7 +85,7 @@ public class Business{
 	}
 
 
-	public int getPhone(){
+	public String getPhone(){
 		return phone;
 	}
 
@@ -127,7 +130,7 @@ public class Business{
 
 
 	public String getLegalGuardiansName(){
-		return legalGuardiansName
+		return legalGuardiansName;
 	}
 
 	public void setLegalGuardiansName(String legalGuardiansName){
