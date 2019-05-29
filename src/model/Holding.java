@@ -43,4 +43,49 @@ public class Holding{
 	public void setOwner(String owner){
 		this.owner = owner;
 	}
+
+	public int businessesCounter(int selection){
+		int many = 0;
+
+		switch (selection) {
+			case 0: 
+				many = businesses.size();
+				break;
+				
+			
+			
+		}
+
+
+		return many;
+	}
+
+
+
+	public String showBusinessesInfo(){
+		String info = "";
+
+		for (int i = 0;i < businesses.size()  ;i++ ) {
+			Business businessInMatter = businesses.get(i);
+
+			if(businessInMatter instanceof Education){
+				Education businessE = (Education)businessInMatter;
+				info += businessE.getMyInfo();
+			}
+				else if(businessInMatter instanceof Manufacturing){
+					Manufacturing businessM = (Manufacturing)businessInMatter;
+					info += businessM.getMyInfo();
+				}
+					else if(businessInMatter instanceof Technological){
+						Technological businessT = (Technological)businessInMatter;
+						info += businessT.getMyInfo();
+					}
+
+				
+		}
+
+		return info;
+	}
+
+
 } //end of class

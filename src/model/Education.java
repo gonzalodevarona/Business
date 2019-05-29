@@ -102,5 +102,9 @@ public class Education extends Service{
 		this.totalStudents = totalStudents;
 	}
 
+	public String getMyInfo(){
+		
+	}
+
 
 } //end of class

@@ -5,29 +5,53 @@
  * DEPARTAMENTO TIC - ALGORTIMOS Y PROGRAMACIÓN I
  * LAB FOR HOLDING BUSINESS
  * @author: GONZALO DE VARONA <gonzalo.de1@correo.icesi.edu.co>
- * @version: 20 MAY 2019
+ * @version: 29 MAY 2019
  * ˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜
  */
 
 package model;
-import java.util.ArrayList;
+
+public class Survey{
+
+	//ATTRIBUTES
+	private int questionA;
+	private int questionB;
+	private int questionC;
 
 
-
-public class Manufacturing extends Business{
-
-	//RELATIONSHIPS
-
-	private ArrayList<Product> products;
-
-	public Manufacturing(String name, int nit, String address, String phone, int quantityEmployees, double assetsCop, 
-	DateIn openingDate, String typeOfOrganization, String legalGuardiansName){
-		super(name, nit, address, phone, quantityEmployees, assetsCop, openingDate, typeOfOrganization, legalGuardiansName);
-		products = new ArrayList<Product>();
+	public Survey(int questionA, int questionB, int questionC){
+		this.questionA = questionA;
+		this.questionB = questionB;
+		this.questionC = questionC;
 	}
 
-	public int water4tree(){
-		//TODO
+	public int getQuestionA(){
+		return questionA;
 	}
+
+	public void setQuestionA(int questionA){
+		this.questionA = questionA;
+	}
+
+
+	public int getQuestionB(){
+		return questionB;
+	}
+
+	public void setQuestionB(int questionB){
+		this.questionB = questionB;
+	}
+
+	public int getQuestionC(){
+		return questionC;
+	}
+
+	public void setQuestionC(int questionC){
+		this.questionC = questionC;
+	}
+
+
+
+
 
 } //end of class
