@@ -314,6 +314,10 @@ private Holding holding;
 								break;
 							case 3:	
 								System.out.println("Please select type of service rendered: "); 
+								System.out.println("1. Sewerage");
+								System.out.println("2. Energy");
+								System.out.println("3. Aqueduct");
+
 								typeSelectionMssg();
 								int choiseService = reader.nextInt(); reader.nextLine();
 								plainLine();
@@ -564,7 +568,9 @@ private Holding holding;
 
 	public void businessesInfo(){
 
-		//TODO
+		System.out.println("");
+		System.out.println(holding.showAllBusinesses());
+		System.out.println("");
 
 
 	}

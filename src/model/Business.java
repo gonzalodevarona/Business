@@ -181,4 +181,35 @@ public class Business{
 		return average;
 	}
 
+
+	public String toString(){
+		String reply = "\n";
+			   reply += "\n";
+		       reply += "+-------------------------------------------------------------------------------------------------------------+\n";
+			   reply += "| **************************************** BUSINESS BASIC INFORMATION *************************************** +\n";
+			   reply += "+-------------------------------------------------------------------------------------------------------------+\n";
+			   reply += "|\n";
+			   reply += "| Business name: "+name+"\n";
+			   reply += "| Business nit: "+nit+"\n";
+			   reply += "| Business address: "+address+"\n";
+			   reply += "| Business phone: "+phone+"\n";
+			   reply += "| Number of employees: "+quantityEmployees+"\n";
+			   reply += "| Business assets(COP): "+assetsCop+"\n";
+			   reply += "| Type of organization: "+typeOfOrganization+"\n";
+			   reply += "| Legal representative: "+legalGuardiansName+"\n";
+			   reply += "| Constitution date: "+openingDate.convertDateToString()+"\n";
+			   reply += "|\n";
+			   reply += "| Business bulding has "+cubicles.length+" floors, and "+cubicles[0].length+" cubicles per floor\n";
+			   reply += "| Total cubicles: "+ cubicles.length*cubicles[0].length +"\n";
+			   reply += "|\n";
+			   reply += "| Total surveys: "+ surveys.size()+"\n";
+			   reply += "| Average satisfaction indicator: "+ customersAverageSatisfaction()+". (If it is -1 means there aren't enough surveys to make the calculus)\n";
+			   reply += "|\n";
+			   reply += "|\n";
+			   
+			   
+
+		return reply;
+	}
+
 } //end of class

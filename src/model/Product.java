@@ -80,6 +80,22 @@ public class Product{
 		this.invima = invima;
 	}
 
+	public String toString(){
+    String reply  = "|\n";
+		   reply += "| Product's name: "+name+"\n";
+		   reply += "| Product's code: "+code+"\n";
+		   reply += "| Water required for manufacture: "+waterRequired4Manufacturing+" litres\n";
+		   reply += "| Units in inventory: "+unitsInventory+" COP\n";
+		   reply += "|\n";
+		   reply += "+-------------------------------------------------------------------------------------------------------------+\n";
+		 if (invima != null) {
+		 	reply += invima.toString();
+		 }
+			   
+
+		return reply;
+
+	}
 
 
 

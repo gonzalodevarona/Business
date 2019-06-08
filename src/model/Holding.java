@@ -76,4 +76,36 @@ public class Holding{
 	}
 
 
+	public String showAllBusinesses(){
+		String reply = "";
+
+		for (int i = 0;i<businesses.size() ;i++ ) {
+
+			Business businessInMatter = businesses.get(i);
+
+			if (businessInMatter instanceof Education) {
+				Education businessInMatterE = (Education) businessInMatter;
+				reply += businessInMatterE.toString();
+
+			} else if (businessInMatter instanceof Public) {
+				Public businessInMatterP = (Public) businessInMatter;
+				reply += businessInMatterP.toString();
+
+			} else if (businessInMatter instanceof Technological) {
+				Technological businessInMatterT = (Technological) businessInMatter;
+				reply += businessInMatterT.toString();
+
+			} else{
+				Manufacturing businessInMatterM = (Manufacturing) businessInMatter;
+				reply += businessInMatterM.toString();
+
+			}
+
+			
+		}
+
+		return reply;
+	}
+
+
 } //end of class

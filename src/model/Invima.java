@@ -75,5 +75,18 @@ public class Invima{
 		this.dateExpiration = dateExpiration;
 	}
 
+	public String toString(){
+	String reply  = "|\n";
+	       reply += "| INVIMA";
+		   reply += "| Product's sanitary registration: "+sanitaryRegistration+"\n";
+		   reply += "| Active: "+status+"\n";
+		   reply += "| Mode: "+mode+"\n";
+		   reply += "| Expiration date: "+dateExpiration.convertDateToStringMY()+"\n";
+		   reply += "|\n";
+		   reply += "+-------------------------------------------------------------------------------------------------------------+\n";
+		   reply += "|\n";
+		return reply;
+	}
+
 
 } //end of class

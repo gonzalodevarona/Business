@@ -71,6 +71,28 @@ public class Public extends Service implements Taxable{
 	}
 
 
+	@Override
+	public String toString(){
+
+		String reply = super.toString();
+		       reply += "+-------------------------------------------------------------------------------------------------------------+\n";
+			   reply += "| *********************************** PUBLIC SERVICES BUSINESS INFORMATION ********************************** +\n";
+			   reply += "+-------------------------------------------------------------------------------------------------------------+\n";
+			   reply += "|\n";
+			   reply += "| Service type: "+serviceType+"\n";
+			   reply += "| Total subscribers: "+totalSubscribers+"\n";
+			   reply += "| Total subscribers from 1 and 2 stratums:  "+subscribers1N2+"\n";
+			   reply += "| Procultura tax: "+procultura()+" COP\n";
+			   reply += "|\n";
+			   reply += "+-------------------------------------------------------------------------------------------------------------+\n";
+			   reply += "\n";
+			   
+
+		return reply;
+	
+	}
+
+
 
 
 

@@ -5,7 +5,7 @@
  * DEPARTAMENTO TIC - ALGORTIMOS Y PROGRAMACIÓN I
  * LAB FOR HOLDING BUSINESS
  * @author: GONZALO DE VARONA <gonzalo.de1@correo.icesi.edu.co>
- * @version: 2 JUNE 2019
+ * @version: 8 JUNE 2019
  * ˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜
  */
 
@@ -40,7 +40,8 @@ public class Education extends Service implements Taxable{
 		this.nationalRankingPro = nationalRankingPro;
 		this.principalsName = principalsName;
 		this.sector = sector;
-		this.sector = sector;
+		this.totalStudents1And2 = totalStudents1And2;
+		this.totalStudents = totalStudents;
 	}
 
 
@@ -125,6 +126,32 @@ public class Education extends Service implements Taxable{
 		}
 
 		return tax;
+	}
+
+	@Override
+	public String toString(){
+
+		String reply = super.toString();
+		       reply += "+-------------------------------------------------------------------------------------------------------------+\n";
+			   reply += "| ************************************** EDUCATION BUSINESS INFORMATION ************************************* +\n";
+			   reply += "+-------------------------------------------------------------------------------------------------------------+\n";
+			   reply += "|\n";
+			   reply += "| Approval number before MEN: "+approvalNumberMEN+"\n";
+			   reply += "| Years as high quality institution: "+yearsAsHighQuality+"\n";
+			   reply += "| National ranking position on SABER 11: "+nationalRanking11+"\n";
+			   reply += "| National ranking position on SABER PRO: "+nationalRankingPro+"\n";
+			   reply += "| Principal's name: "+principalsName+"\n";
+			   reply += "| Educational sector: "+sector+"\n";
+			   reply += "| Total students from 1 and 2 stratums: "+totalStudents1And2+"\n";
+			   reply += "| Total students: "+totalStudents+"\n";
+			   reply += "| Procultura tax: "+procultura()+" COP\n";
+			   reply += "|\n";
+			   reply += "+-------------------------------------------------------------------------------------------------------------+\n";
+			   reply += "\n";
+			   
+
+		return reply;
+	
 	}
 
 

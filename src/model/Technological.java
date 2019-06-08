@@ -12,7 +12,7 @@
 package model;
 import java.util.*;
 
-public class Technological extends Service implements Taxable{
+public class Technological extends Service{
 
 
 	//ATTRIBUTES
@@ -121,11 +121,30 @@ public class Technological extends Service implements Taxable{
 		this.platformService = platformService;
 	}
 
-	public double procultura(){
-		//TODO
-		return 0;
+
+	@Override
+	public String toString(){
+
+		String reply = super.toString();
+		       reply += "+-------------------------------------------------------------------------------------------------------------+\n";
+			   reply += "| ************************************ TECHNOLOGICAL BUSINESS INFORMATION *********************************** +\n";
+			   reply += "+-------------------------------------------------------------------------------------------------------------+\n";
+			   reply += "|\n";
+			   reply += "| Kilowatts consumed: "+kilowatts+"\n";
+			   reply += "| Consulting services rendered: "+consulting+"\n";
+			   reply += "| Training services rendered: "+training+"\n";
+			   reply += "| Software development services rendered: "+softwareDevelopment+"\n";
+			   reply += "| Infrastructure services rendered: "+infrastructureService+"\n";
+			   reply += "| Software services rendered: "+softwareService+"\n";
+			   reply += "| Platform services rendered: "+platformService+"\n";
+			   reply += "| Trees that must be planted: "+energyXtrees()+"\n";
+			   reply += "|\n";
+			   reply += "+-------------------------------------------------------------------------------------------------------------+\n";
+			   reply += "\n";
+			   
+
+		return reply;
+	
 	}
-
-
 
 } //end of class

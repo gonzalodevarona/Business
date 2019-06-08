@@ -116,6 +116,15 @@ public class DateIn {
 	public int calculateDayOfTheYear(){
 		return (month * 30 - (day-30));
 	}
+
+	public String convertDateToStringMY(){
+		String aDate = "";
+		aDate += Integer.toString(month);
+		aDate += "/";
+		aDate += Integer.toString(year);
+		return aDate;
+	}
+	
 	
 
 	

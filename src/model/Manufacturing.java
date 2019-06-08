@@ -5,7 +5,7 @@
  * DEPARTAMENTO TIC - ALGORTIMOS Y PROGRAMACIÓN I
  * LAB FOR HOLDING BUSINESS
  * @author: GONZALO DE VARONA <gonzalo.de1@correo.icesi.edu.co>
- * @version: 20 MAY 2019
+ * @version: 8 JUNE 2019
  * ˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜
  */
 
@@ -48,6 +48,33 @@ public class Manufacturing extends Business{
 
 	public void addProduct(Product product){
 		products.add(product);
+	}
+
+	@Override
+	public String toString(){
+
+		String reply = super.toString();
+		       reply += "+-------------------------------------------------------------------------------------------------------------+\n";
+			   reply += "| ************************************ MANUFACTURING BUSINESS INFORMATION *********************************** +\n";
+			   reply += "+-------------------------------------------------------------------------------------------------------------+\n";
+			   reply += "|\n";
+			   reply += "| Trees that must be planted: "+water4tree()+"\n";
+			   reply += "|\n";
+			   
+
+			   int k = 0;
+			for (int i = 1;i<= products.size() && k< products.size() ;i++ ) {
+			   reply += "+-------------------------------------------------------------------------------------------------------------+\n";
+			   reply += "| ********************************************** PRODUCT #"+i+" ********************************************* +\n";
+			   reply += "+-------------------------------------------------------------------------------------------------------------+\n";
+			   reply += products.get(k).toString();
+			   k++;
+			   	
+			}
+			   
+
+		return reply;
+	
 	}
 
 } //end of class
