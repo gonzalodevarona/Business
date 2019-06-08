@@ -10,12 +10,14 @@
  */
 
 package model;
+import java.util.*;
 
-public class Technological extends Service{
+public class Technological extends Service implements Taxable{
 
 
 	//ATTRIBUTES
 	//ALL THIS ATTRIUTES BELOW REFFER OF HOW MANY TIMES DOES A SERVICE OF EACH TYPE HAD BEEN RENDERED
+	private  double kilowatts;
 	private int consulting;
 	private int training;
 	private int softwareDevelopment;
@@ -26,9 +28,12 @@ public class Technological extends Service{
 
 	//METHODS
 	public Technological(String name, int nit, String address, String phone, int quantityEmployees, double assetsCop, 
-	DateIn openingDate, String typeOfOrganization, String legalGuardiansName, int consulting, int training, int softwareDevelopment, int infrastructureService,
+	DateIn openingDate, String typeOfOrganization, String legalGuardiansName, Cubicle[][] cubicles, ArrayList<Survey> surveys, double kilowatts, int consulting, 
+	int training, int softwareDevelopment, int infrastructureService,
 	int softwareService, int platformService){
-		super(name, nit, address, phone, quantityEmployees, assetsCop, openingDate, typeOfOrganization, legalGuardiansName);
+		
+		super(name, nit, address, phone, quantityEmployees, assetsCop, openingDate, typeOfOrganization, legalGuardiansName, cubicles, surveys);
+		this.kilowatts = kilowatts;
 		this.consulting = consulting;
 		this.training = training;
 		this.softwareDevelopment = softwareDevelopment;
@@ -37,6 +42,30 @@ public class Technological extends Service{
 		this.platformService = platformService;
 	}
 
+
+	public int energyXtrees(){
+		int trees = 0;
+
+		if (kilowatts >= 1 && kilowatts <= 1000) {
+		 	trees = trees + 8;
+		} else if (kilowatts >= 1001 && kilowatts <= 3000) {
+		 	trees = trees + 35;
+		} else if (kilowatts < 3000) {
+		 	trees = trees + 500;
+		}
+
+		return trees;
+	}
+
+
+	public double getKilowatts(){
+		return kilowatts;
+	}
+
+
+	public void setKilowatts(double kilowatts){
+		this.kilowatts = kilowatts;
+	}
 
 
 	public int getConsulting(){
@@ -92,6 +121,10 @@ public class Technological extends Service{
 		this.platformService = platformService;
 	}
 
+	public double procultura(){
+		//TODO
+		return 0;
+	}
 
 
 

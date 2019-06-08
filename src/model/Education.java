@@ -5,13 +5,14 @@
  * DEPARTAMENTO TIC - ALGORTIMOS Y PROGRAMACIÓN I
  * LAB FOR HOLDING BUSINESS
  * @author: GONZALO DE VARONA <gonzalo.de1@correo.icesi.edu.co>
- * @version: 20 MAY 2019
+ * @version: 2 JUNE 2019
  * ˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜
  */
 
 package model;
+import java.util.*;
 
-public class Education extends Service{
+public class Education extends Service implements Taxable{
 
 	public final static String HIGHSCHOOL = "High school";
 	public final static String COLLEGE  = "College";
@@ -20,6 +21,7 @@ public class Education extends Service{
 	//ATTRIBUTES
 	private String approvalNumberMEN;
 	private double yearsAsHighQuality;
+	private int nationalRanking11;
 	private int nationalRankingPro;
 	private String principalsName;
 	private String sector;
@@ -29,11 +31,12 @@ public class Education extends Service{
 
 	//METHODS
 	public Education(String name, int nit, String address, String phone, int quantityEmployees, double assetsCop, 
-	DateIn openingDate, String typeOfOrganization, String legalGuardiansName, String approvalNumberMEN, double yearsAsHighQuality, int nationalRankingPro,
-	String principalsName, String sector, int totalStudents1And2, int totalStudents){
-		super(name, nit, address, phone, quantityEmployees, assetsCop, openingDate, typeOfOrganization, legalGuardiansName);
+	DateIn openingDate, String typeOfOrganization, String legalGuardiansName, Cubicle[][] cubicles, ArrayList<Survey> surveys, String approvalNumberMEN, 
+	double yearsAsHighQuality, int nationalRanking11, int nationalRankingPro, String principalsName, String sector, int totalStudents1And2, int totalStudents){
+		super(name, nit, address, phone, quantityEmployees, assetsCop, openingDate, typeOfOrganization, legalGuardiansName, cubicles, surveys);
 		this.approvalNumberMEN = approvalNumberMEN;
 		this.yearsAsHighQuality = yearsAsHighQuality;
+		this.nationalRanking11 = nationalRanking11;
 		this.nationalRankingPro = nationalRankingPro;
 		this.principalsName = principalsName;
 		this.sector = sector;
@@ -55,6 +58,15 @@ public class Education extends Service{
 	}
 	public void setYearsAsHighQuality(double yearsAsHighQuality){
 		this.yearsAsHighQuality = yearsAsHighQuality;
+	}
+
+
+	public int getNationalRanking11(){
+		return nationalRanking11;
+	}
+	
+	public void setNationalRanking11(int nationalRanking11){
+		this.nationalRanking11 = nationalRanking11;
 	}
 
 
@@ -102,8 +114,17 @@ public class Education extends Service{
 		this.totalStudents = totalStudents;
 	}
 
-	public String getMyInfo(){
-		
+	public double procultura(){
+		double tax = (totalStudents1And2 * 100);
+		tax = tax / totalStudents;
+
+		tax = 20 - tax;
+
+		if (tax < 0) {
+			tax = 0;
+		}
+
+		return tax;
 	}
 
 

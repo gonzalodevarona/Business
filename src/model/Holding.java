@@ -16,14 +16,16 @@ public class Holding{
 
 	//ATTRIBUTES
 	private String name;
-	private String code;
+	private String owner;
 
 	//RELATIONSHIPS
 	private ArrayList<Business> businesses;
+	private Cubicle[][] building;
 
-	public Holding(String name, String owner){
+	public Holding(String name, String owner, Cubicle[][] building){
 		this.name = name;
 		this.owner = owner;
+		this.building = building;
 		businesses = new ArrayList<Business>();
 	}
 
@@ -44,47 +46,33 @@ public class Holding{
 		this.owner = owner;
 	}
 
-	public int businessesCounter(int selection){
-		int many = 0;
+	public String addBusiness(Business business){
+		businesses.add(business);
 
-		switch (selection) {
-			case 0: 
-				many = businesses.size();
-				break;
-				
-			
-			
-		}
-
-
-		return many;
+		return "New business has been added to "+name+" holding";
 	}
 
 
+	public Business findBusiness(int nit){
+		Business found = null;
+		boolean stop = false;
 
-	public String showBusinessesInfo(){
-		String info = "";
+		for (int i = 0;i<businesses.size() && !stop ;i++ ) {
+			if (businesses.get(i).getNit() == nit) {
+				stop = true;
 
-		for (int i = 0;i < businesses.size()  ;i++ ) {
-			Business businessInMatter = businesses.get(i);
-
-			if(businessInMatter instanceof Education){
-				Education businessE = (Education)businessInMatter;
-				info += businessE.getMyInfo();
-			}
-				else if(businessInMatter instanceof Manufacturing){
-					Manufacturing businessM = (Manufacturing)businessInMatter;
-					info += businessM.getMyInfo();
-				}
-					else if(businessInMatter instanceof Technological){
-						Technological businessT = (Technological)businessInMatter;
-						info += businessT.getMyInfo();
-					}
-
+				found = businesses.get(i);
 				
+			}
 		}
 
-		return info;
+		return found;
+	}
+
+
+	public int businessCounter(){
+		int numberOfBusinesses = businesses.size();
+		return numberOfBusinesses;
 	}
 
 

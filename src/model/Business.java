@@ -5,10 +5,12 @@
  * DEPARTAMENTO TIC - ALGORTIMOS Y PROGRAMACIÓN I
  * LAB FOR HOLDING BUSINESS
  * @author: GONZALO DE VARONA <gonzalo.de1@correo.icesi.edu.co>
- * @version: 20 MAY 2019
+ * @version: 4 JUNE 2019
  * ˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜
  */
 package model;
+
+import java.util.*;
 
 
 public class Business{
@@ -40,11 +42,13 @@ public class Business{
 	//RELATIONSHIPS
 
 	private DateIn openingDate;
+	private Cubicle[][] cubicles;
+	private ArrayList<Survey> surveys;
 
 	//METHODS
 
 	public Business (String name, int nit, String address, String phone, int quantityEmployees, double assetsCop, 
-	DateIn openingDate, String typeOfOrganization, String legalGuardiansName) {
+	DateIn openingDate, String typeOfOrganization, String legalGuardiansName, Cubicle[][] cubicles, ArrayList<Survey> surveys) {
 
 		this.name = name;
 		this.nit = nit;
@@ -55,6 +59,8 @@ public class Business{
 		this.openingDate = openingDate;
 		this.typeOfOrganization = typeOfOrganization;
 		this.legalGuardiansName = legalGuardiansName;
+		this.cubicles = cubicles;
+		this.surveys = surveys;
 	}
 
 
@@ -138,5 +144,41 @@ public class Business{
 	}
 
 
+	public Cubicle[][] getCubicles(){
+		return cubicles;
+	}
+
+	public void setCubicles(Cubicle[][] cubicles){
+		this.cubicles = cubicles;
+	}
+
+
+	public String addSurvey(Survey survey){
+		surveys.add(survey);
+
+		return "New survey has been added to "+name;
+	}
+
+
+	public double customersAverageSatisfaction(){
+		double average = -1;
+		int sum = 0;
+
+		if (surveys.size() >= 10 && surveys.size() <= 50) {
+
+			for (int i = 0; i<surveys.size(); i++ ) {
+			Survey survey = surveys.get(i);
+
+			sum += survey.getQuestionA();
+			sum += survey.getQuestionB();
+			sum += survey.getQuestionC();
+			}
+
+			average = sum / surveys.size();
+
+		} 
+		
+		return average;
+	}
 
 } //end of class

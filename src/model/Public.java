@@ -10,8 +10,14 @@
  */
 
 package model;
+import java.util.*;
 
-public class Public extends Service{
+
+public class Public extends Service implements Taxable{
+
+	public final static String SEWERAGE= "Sewerage";
+	public final static String ENERGY = "Energy";
+	public final static String AQUEDUCT = "Aqueduct";
 
 	//ATTRIBUTES
 	private String serviceType;
@@ -20,19 +26,19 @@ public class Public extends Service{
 
 
 	public Public(String name, int nit, String address, String phone, int quantityEmployees, double assetsCop, 
-	DateIn openingDate, String typeOfOrganization, String legalGuardiansName, String serviceType, int totalSubscribers, int subscribers1N2){
+	DateIn openingDate, String typeOfOrganization, String legalGuardiansName, Cubicle[][] cubicles, ArrayList<Survey> surveys, String serviceType, int totalSubscribers, int subscribers1N2){
 		
-		super(name, nit, address, phone, quantityEmployees, assetsCop, openingDate, typeOfOrganization, legalGuardiansName);
+		super(name, nit, address, phone, quantityEmployees, assetsCop, openingDate, typeOfOrganization, legalGuardiansName, cubicles, surveys);
 		this.serviceType = serviceType;
 		this.totalSubscribers = totalSubscribers;
 		this.subscribers1N2 = subscribers1N2;
 	}
 
-	public int getServiceType(){
+	public String getServiceType(){
 		return serviceType;
 	}
 
-	public void setServiceType(int serviceType){
+	public void setServiceType(String serviceType){
 		this.serviceType = serviceType;
 	}
 
@@ -51,6 +57,17 @@ public class Public extends Service{
 
 	public void setSubscribers1N2(int subscribers1N2){
 		this.subscribers1N2 = subscribers1N2;
+	}
+
+	public double procultura(){
+		double tax = totalSubscribers - subscribers1N2;
+		tax = 40 - tax;
+
+		if (tax < 0) {
+			tax = 0;
+		}
+
+		return tax;
 	}
 
 

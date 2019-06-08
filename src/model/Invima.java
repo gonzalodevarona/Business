@@ -5,7 +5,7 @@
  * DEPARTAMENTO TIC - ALGORTIMOS Y PROGRAMACIÓN I
  * LAB FOR HOLDING BUSINESS
  * @author: GONZALO DE VARONA <gonzalo.de1@correo.icesi.edu.co>
- * @version: 20 MAY 2019
+ * @version: 7 JUNE 2019
  * ˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜
  */
 
@@ -26,7 +26,19 @@ public class Invima{
 	private String mode;
 
 
+	//RELATIONSHIPS
+
+	private DateIn dateExpiration;
+
+
 	//METHODS
+
+	public Invima(String sanitaryRegistration, boolean status, String mode, DateIn dateExpiration){
+		this.sanitaryRegistration = sanitaryRegistration;
+		this.status = status;
+		this.mode = mode;
+		this.dateExpiration = dateExpiration;
+	}
 
 	public String getSanitaryRegistration(){
 		return sanitaryRegistration;
@@ -52,6 +64,15 @@ public class Invima{
 
 	public void setMode(String mode){
 		this.mode = mode;
+	}
+
+
+	public DateIn getDateExpiration(){
+		return dateExpiration;
+	}
+
+	public void setDateExpiration(DateIn dateExpiration){
+		this.dateExpiration = dateExpiration;
 	}
 
 
