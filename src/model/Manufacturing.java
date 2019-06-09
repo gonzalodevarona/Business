@@ -21,8 +21,8 @@ public class Manufacturing extends Business{
 	private ArrayList<Product> products;
 
 	public Manufacturing(String name, int nit, String address, String phone, int quantityEmployees, double assetsCop, 
-	DateIn openingDate, String typeOfOrganization, String legalGuardiansName, Cubicle[][] cubicles, ArrayList<Survey> surveys){
-		super(name, nit, address, phone, quantityEmployees, assetsCop, openingDate, typeOfOrganization, legalGuardiansName, cubicles, surveys);
+	DateIn openingDate, String typeOfOrganization, String legalGuardiansName, Cubicle[][] cubicles){
+		super(name, nit, address, phone, quantityEmployees, assetsCop, openingDate, typeOfOrganization, legalGuardiansName, cubicles);
 		products = new ArrayList<Product>();
 	}
 

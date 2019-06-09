@@ -7,7 +7,7 @@
  * DEPARTAMENTO TIC - ALGORTIMOS Y PROGRAMACIÓN I
  * LAB FOR HOLDING BUSINESS
  * @author: GONZALO DE VARONA <gonzalo.de1@correo.icesi.edu.co>
- * @version: 7 JUNE 2019
+ * @version: 8 JUNE 2019
  * ˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜
  */
 package ui;
@@ -65,9 +65,12 @@ private Holding holding;
 		System.out.println("");
 		System.out.println("1. Register a new business.");
 		System.out.println("2. Register surveys for a business.");
-		System.out.println("3. Show businesses information.");
-		System.out.println("4. Show how many businesses does the holding have.");
-		System.out.println("5. QUIT PROGRAM");
+		System.out.println("3. Register a new employee to an existing business.");
+		System.out.println("4. Search extension by typing employee's name.");
+		System.out.println("5. Show businesses information.");
+		System.out.println("6. Show how many businesses does the holding have.");
+		System.out.println("7. Show employees emails by a given position.");
+		System.out.println("8. QUIT PROGRAM");
 		System.out.println("");
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -105,7 +108,7 @@ private Holding holding;
 		System.out.println("|   _   ||   |___ |       ||     |_ |       || ||_|| ||   |___     |   |  |       |  |   _   ||       ||       ||       ||   | | | |   ||   |_| | _____| ||   | |     |_ |       |");  
 		System.out.println("|__| |__||_______||_______||_______||_______||_|   |_||_______|    |___|  |_______|  |__| |__||_______||_______||______| |___| |_|  |__||_______||_______||___| |_______||_______|");                                                                
 
-		while (userInput != 5){
+		while (userInput != 8){
 
 			showMenuOptions();
 
@@ -129,22 +132,41 @@ private Holding holding;
 					break; 
 
 
-				//SHOW BUSINESSES INFORMATION
+				//REGISTER A NEW EMPLOYEE
 				case 3: 
+					addEmployee();
+					break;
+
+
+				//SEARCH EXTENSION BASED ON NAME AND EMAIL
+				case 4: 
+					findExtension();
+					break;
+
+
+				//SHOW BUSINESSES INFORMATION
+				case 5: 
 					businessesInfo();
 					break; 
 
 
 				//SHOW HOW MANY BUSINESSES DOES THE HOLDING HAVE
-				case 4: 
+				case 6: 
 					businessesQuantity(); 
 					break;
 
 
+				//
+				case 7: 
+					showEmails();
+					break;
+
+
 				//QUIT PROGRAM
-				case 5: 
+				case 8: 
 					theGoodbye();
 					break;
+
 
 				default:
 					break;
@@ -353,12 +375,12 @@ private Holding holding;
 								break;
 							case 4:
 								Manufacturing theNewM = new Manufacturing (name,  nit, address, phone, quantityEmployees, assetsCop, openingDate, typeOfOrganization,
-								legalGuardiansName, cubicles, surveys);
+								legalGuardiansName, cubicles);
 
 
 							
 
-								System.out.print("How many products does the business manufacture?"); int numberProducts = reader.nextInt(); reader.nextLine();
+								System.out.print("How many products does the business manufacture? "); int numberProducts = reader.nextInt(); reader.nextLine();
 								
 								for (int i = 1 ; i<= numberProducts ; i++ ) {
 									System.out.println("");
@@ -533,7 +555,7 @@ private Holding holding;
 
 		Business found = holding.findBusiness(nit);
 
-		if (found != null) {
+		if (found != null && found instanceof Service) {
 			System.out.print("How many surveys are going to be registered? "); int many = reader.nextInt(); reader.nextLine();
 
 
@@ -547,8 +569,9 @@ private Holding holding;
 				
 				if (questionA >= 1 && questionA <= 5 && questionB >= 1 && questionB <= 5 && questionC >= 1 && questionC <= 5) {
 					Survey survey = new Survey(questionA, questionB, questionC);
+					Service foundS = (Service)found;
 					System.out.println("");
-					System.out.println(found.addSurvey(survey));
+					System.out.println(foundS.addSurvey(survey));
 					System.out.println("");
 
 				} else {System.out.println("");
@@ -606,7 +629,7 @@ private Holding holding;
 
 
 		int everyone = building.length * building[0].length;
-		System.out.println(everyone);
+		
 		System.out.println("NOTE: Cubicle's information can be overrided. *Extension number is obligatory*");
 
 		
@@ -640,6 +663,139 @@ private Holding holding;
 		
 		}
 
+	}
+
+
+	public void addEmployee(){
+
+		System.out.println("Please type the nit of the business to register the new employee:");
+		System.out.print("NIT: ");int nit = reader.nextInt(); reader.nextLine();
+		System.out.println("");
+
+		Business found = holding.findBusiness(nit);
+
+		if (found != null) {
+			boolean stop = false;
+			Cubicle[][] building = found.getCubicles();
+
+			for (int i = 0; i< building.length && !stop ;i++ ) {
+
+				for (int j = 0; j< building[0].length && !stop;j++ ) {
+
+					if (building[i][j].getName().equals("")) {
+						stop = true;
+						System.out.print("Please type the name of the employee for the cubicle: "); String name = reader.nextLine();
+						System.out.print("Please type the position of the employee for the cubicle: "); String position = reader.nextLine();
+						System.out.print("Please type the email of the employee for the cubicle: "); String email = reader.nextLine();
+
+						if ( !(name.equals("")) && !(position.equals("")) && !(email.equals(""))  ) {
+							building[i][j].setName(name);
+							building[i][j].setPosition(position);
+							building[i][j].setEmail(email);
+						} else{System.out.println("");
+							System.out.println("ERROR: Missing information");
+							System.out.println("");}
+						
+					}
+				}
+			}
+
+			if (stop == false) {
+				System.out.println("");
+				System.out.println("Building is full, all cubicles are occupied");
+				System.out.println("");
+			}
+
+		} else {System.out.println("");
+			System.out.println("ERROR: No business found");
+			System.out.println("");}
+
+
+
+	}
+
+
+
+	public void findExtension(){
+		System.out.println("Please type the nit of the business to search the extension:");
+		System.out.print("NIT: ");int nit = reader.nextInt(); reader.nextLine();
+		System.out.println("");
+
+		Business found = holding.findBusiness(nit);
+
+		if (found != null) {
+			System.out.print("Please type the name of the employee: "); String name = reader.nextLine();
+			System.out.print("Please type the email of the employee:"); String email = reader.nextLine();
+			System.out.println("");
+							
+			if (!(name.equals("")) && !(email.equals("")) && email.contains("@")) {
+															
+				System.out.println("*NOTE: Fifth option its only posible when building's floors number is uneven.");																					
+				System.out.println("Please select a letter to make a search thru de building like its shape: "); 
+				System.out.println("1. L");
+				System.out.println("2. Z");
+				System.out.println("3. X");
+				System.out.println("4. O");
+				System.out.println("5. E");
+
+				typeSelectionMssg();
+				int letter = reader.nextInt(); reader.nextLine();
+				plainLine();
+
+				if (letter == 1 || letter == 2 || letter == 3 || letter == 4 || letter == 5 ) {
+					String extension = holding.findExtension(found, letter, name, email);
+
+					if (!(extension.equals(""))) {
+						System.out.println("The extension number is: "+extension);
+						
+					} else {System.out.println("");
+						System.out.println("Extension not found");
+						System.out.println("");}
+
+				} else {System.out.println("");
+						System.out.println("ERROR: Invalid selection");
+						System.out.println("");
+				}
+			
+			} else {System.out.println("");
+			System.out.println("ERROR: Missing information");
+			System.out.println("");}
+
+		} else {System.out.println("");
+			System.out.println("ERROR: No business found");
+			System.out.println("");}
+
+	}
+
+
+	public void showEmails(){
+		System.out.println("Please type the nit of the business to search the extension:");
+		System.out.print("NIT: ");int nit = reader.nextInt(); reader.nextLine();
+		System.out.println("");
+
+		Business found = holding.findBusiness(nit);
+
+		if (found != null) {
+			System.out.print("Please type the position in order to make the search: "); String position = reader.nextLine();
+
+			if (!(position.equals(""))) {
+					String emails = holding.findEmails(found, position);
+
+					if (!(emails.equals(""))) {
+						System.out.println("Emails for "+position+":\n");
+						System.out.println(emails);
+						
+					} else {System.out.println("");
+						System.out.println("ERROR: No match found");
+						System.out.println("");}
+			
+		} else {System.out.println("");
+						System.out.println("ERROR: Missing information");
+						System.out.println("");}
+
+	} else {System.out.println("");
+			System.out.println("ERROR: No business found");
+			System.out.println("");}
 	}
 						
 

@@ -5,7 +5,7 @@
  * DEPARTAMENTO TIC - ALGORTIMOS Y PROGRAMACIÓN I
  * LAB FOR HOLDING BUSINESS
  * @author: GONZALO DE VARONA <gonzalo.de1@correo.icesi.edu.co>
- * @version: 4 JUNE 2019
+ * @version: 8 JUNE 2019
  * ˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜
  */
 package model;
@@ -43,12 +43,12 @@ public class Business{
 
 	private DateIn openingDate;
 	private Cubicle[][] cubicles;
-	private ArrayList<Survey> surveys;
+	
 
 	//METHODS
 
 	public Business (String name, int nit, String address, String phone, int quantityEmployees, double assetsCop, 
-	DateIn openingDate, String typeOfOrganization, String legalGuardiansName, Cubicle[][] cubicles, ArrayList<Survey> surveys) {
+	DateIn openingDate, String typeOfOrganization, String legalGuardiansName, Cubicle[][] cubicles ) {
 
 		this.name = name;
 		this.nit = nit;
@@ -60,7 +60,6 @@ public class Business{
 		this.typeOfOrganization = typeOfOrganization;
 		this.legalGuardiansName = legalGuardiansName;
 		this.cubicles = cubicles;
-		this.surveys = surveys;
 	}
 
 
@@ -153,34 +152,6 @@ public class Business{
 	}
 
 
-	public String addSurvey(Survey survey){
-		surveys.add(survey);
-
-		return "New survey has been added to "+name;
-	}
-
-
-	public double customersAverageSatisfaction(){
-		double average = -1;
-		int sum = 0;
-
-		if (surveys.size() >= 10 && surveys.size() <= 50) {
-
-			for (int i = 0; i<surveys.size(); i++ ) {
-			Survey survey = surveys.get(i);
-
-			sum += survey.getQuestionA();
-			sum += survey.getQuestionB();
-			sum += survey.getQuestionC();
-			}
-
-			average = sum / surveys.size();
-
-		} 
-		
-		return average;
-	}
-
 
 	public String toString(){
 		String reply = "\n";
@@ -201,9 +172,6 @@ public class Business{
 			   reply += "|\n";
 			   reply += "| Business bulding has "+cubicles.length+" floors, and "+cubicles[0].length+" cubicles per floor\n";
 			   reply += "| Total cubicles: "+ cubicles.length*cubicles[0].length +"\n";
-			   reply += "|\n";
-			   reply += "| Total surveys: "+ surveys.size()+"\n";
-			   reply += "| Average satisfaction indicator: "+ customersAverageSatisfaction()+". (If it is -1 means there aren't enough surveys to make the calculus)\n";
 			   reply += "|\n";
 			   reply += "|\n";
 			   
