@@ -26,6 +26,11 @@ public class Manufacturing extends Business{
 		products = new ArrayList<Product>();
 	}
 
+	/**
+	* Allows to calculate how many trees the manufacturing compnay has to plant because of its water consumption. <br>
+	* @return The quantity of trees to be planted
+	*/
+
 	public int water4tree(){
 		int trees = 0;
 		for (int i = 0; i< products.size() ;i++ ) {
@@ -46,9 +51,24 @@ public class Manufacturing extends Business{
 		return trees;
 	}
 
+
+	/**
+	* Allows to add a product to a manufacturing business.  <br>
+	* <b>post:</b> The product is added to a manufacturing business. 
+	* @param product The product to be added 
+	*/
+
 	public void addProduct(Product product){
 		products.add(product);
 	}
+
+	/**
+	* Manufacturing business informatiom such as trees that must be planted and products info is organized in a format so it can be shown to the final user<br>
+	* <b>pre:</b> This method must be invocated over an existing manufacturing business <br>
+	* @see water4tree()
+	* @see Product.toString()
+	* @return The information of a manufacturing business in a format to be shown to the final user
+	*/
 
 	@Override
 	public String toString(){

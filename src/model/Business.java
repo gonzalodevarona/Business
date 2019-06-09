@@ -63,96 +63,205 @@ public class Business{
 	}
 
 
+	/**
+	* Allows to get the business name. <br>
+	* @return The business name
+	*/
+
 	public String getName(){
 		return name;
 	}
+
+
+	/**
+	* Allows to change the business name. <br>
+	* <b>post:</b> The business name is changed. 
+	* @param name The business name
+	*/
 
 	public void setName(String name){
 		this.name = name;
 	}
 
 
+	/**
+	* Allows to get the business nit. <br>
+	* @return The business nit
+	*/
 	public int getNit(){
 		return nit;
 	}
 
+
+	/**
+	* Allows to change the business nit. <br>
+	* <b>post:</b> The business nit is changed. 
+	* @param nit The business nit
+	*/
 	public void setNit(int nit){
 		this.nit = nit;
 	}
 
 
+	/**
+	* Allows to get the business address. <br>
+	* @return The business address
+	*/
 	public String getAddress(){
 		return address;
 	}
+
+	/**
+	* Allows to change the business address. <br>
+	* <b>post:</b> The business address is changed. 
+	* @param address The business address
+	*/
 
 	public void setAddress(String address){
 		this.address = address;
 	}
 
 
+	/**
+	* Allows to get the business phone. <br>
+	* @return The business phone
+	*/
 	public String getPhone(){
 		return phone;
 	}
 
+
+	/**
+	* Allows to change the business phone. <br>
+	* <b>post:</b> The business phone is changed. 
+	* @param phone The business phone
+	*/
 	public void setPhone(String phone){
 		this.phone = phone;
 	}
 
 
+	/**
+	* Allows to get the business quantity of employees. <br>
+	* @return The business quantity of employees
+	*/
 	public int getQuantityEmployees(){
 		return quantityEmployees;
 	}
 
+
+	/**
+	* Allows to change the business quantity of employees. <br>
+	* <b>post:</b> The business quantity of employees is changed. 
+	* @param quantityEmployees The business quantity of employees
+	*/
 	public void setQuantityEmployees(int quantityEmployees){
 		this.quantityEmployees = quantityEmployees;
 	}
 	
+
+	/**
+	* Allows to get the business assets in COP. <br>
+	* @return The business assets in COP
+	*/
 	public double getAssetsCop(){
 		return assetsCop;
 	}
 
+
+	/**
+	* Allows to change the business assets in COP. <br>
+	* <b>post:</b> The business assets in COP is changed. 
+	* @param assetsCop The business assets in COP
+	*/
 	public void setAssetsCop(double assetsCop){
 		this.assetsCop = assetsCop;
 	}
 
 
+
+	/**
+	* Allows to get the business constitution date. <br>
+	* @return The business constitution date
+	*/
 	public DateIn getOpeningDate(){
 		return openingDate;
 	}
 	
+
+	/**
+	* Allows to change the business constitution date. <br>
+	* <b>post:</b> The business constitution date is changed. 
+	* @param openingDate The business constitution date
+	*/
 	public void setOpeningDate(DateIn openingDate){
 		this.openingDate = openingDate;
 	}
 
 
+	/**
+	* Allows to get the business type of organization. <br>
+	* @return The business type of organization
+	*/
 	public String getTypeOfOrganization(){
 		return typeOfOrganization;
 	}
 
+
+	/**
+	* Allows to change the business type of organization. <br>
+	* <b>post:</b> The business type of organization is changed. 
+	* @param typeOfOrganization The business type of organization
+	*/
 	public void setTypeOfOrganization(String typeOfOrganization){
 		this.typeOfOrganization = typeOfOrganization;
 	}
 
 
+	/**
+	* Allows to get the business legal representative's name. <br>
+	* @return The business legal representative's name
+	*/
 	public String getLegalGuardiansName(){
 		return legalGuardiansName;
 	}
 
+	/**
+	* Allows to change the business legal representative's name. <br>
+	* <b>post:</b> The business legal representative's name is changed. 
+	* @param legalGuardiansName The business legal representative's name
+	*/
 	public void setLegalGuardiansName(String legalGuardiansName){
 		this.legalGuardiansName = legalGuardiansName;
 	}
 
 
+	/**
+	* Allows to get the business building made of cubicles. <br>
+	* @return The business building
+	*/
 	public Cubicle[][] getCubicles(){
 		return cubicles;
 	}
 
+
+	/**
+	* Allows to change the business building made of cubicles. <br>
+	* <b>post:</b> The business legal building is changed. 
+	* @param cubicles The business building made of cubicles
+	*/
 	public void setCubicles(Cubicle[][] cubicles){
 		this.cubicles = cubicles;
 	}
 
 
-
+	/**
+	* Business informatiom such as name, nit, address, phone number, quantity of employees, assets in COP, type of organization, legal representative's name,
+	* constitution date and its building info is organized in a format so it can be shown to the final user<br>
+	* <b>pre:</b> This method must be invocated over an existing business <br>
+	* @see DateIn.convertDateToString()
+	* @return The information of a business in a format to be shown to the final user
+	*/
 	public String toString(){
 		String reply = "\n";
 			   reply += "\n";

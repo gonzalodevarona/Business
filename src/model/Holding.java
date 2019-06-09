@@ -29,22 +29,53 @@ public class Holding{
 		businesses = new ArrayList<Business>();
 	}
 
+	/**
+	* Allows to get the holding's name. <br>
+	* @return The holding's name
+	*/
+
 	public String getName(){
 		return name;
 	}
+
+
+	/**
+	* Allows to change the holding's name. <br>
+	* <b>post:</b> The holding's name is changed. 
+	* @param name The holding's name
+	*/
 
 	public void setName(String name){
 		this.name = name;
 	}
 
 
+	/**
+	* Allows to get the holding owner's name. <br>
+	* @return The holding owner's name
+	*/
 	public String getOwner(){
 		return owner;
 	}
 
+
+	/**
+	* Allows to change the holding owner's name. <br>
+	* <b>post:</b> The holding owner's name is changed. 
+	* @param owner The holding owner's name
+	*/
+
 	public void setOwner(String owner){
 		this.owner = owner;
 	}
+
+
+	/**
+	* Allows to add a business to the holding company.  <br>
+	* <b>post:</b> The business is added to the holding company.
+	* @param business The business to be added 
+	* @return A confirmation message
+	*/
 
 	public String addBusiness(Business business){
 		businesses.add(business);
@@ -124,7 +155,7 @@ public class Holding{
 		switch (letter) {
 				case 1: 
 					for (int i = 0; i<building.length && !stop ; i++ ) {
-						if(building[i][0].getName().equals(name) && building[i][0].getEmail().equals(email)){
+						if(building[i][0].getName().equalsIgnoreCase(name) && building[i][0].getEmail().equalsIgnoreCase(email)){
 							extension = building[i][0].getExtension();
 							stop = true;
 
@@ -133,7 +164,7 @@ public class Holding{
 					}
 
 					for (int j = 0; j<building[0].length && !stop ; j++ ) {
-						if(building[building.length-1][j].getName().equals(name) && building[building.length-1][j].getEmail().equals(email)){
+						if(building[building.length-1][j].getName().equalsIgnoreCase(name) && building[building.length-1][j].getEmail().equalsIgnoreCase(email)){
 							extension = building[building.length-1][j].getExtension();
 							stop = true;
 						}
@@ -145,7 +176,7 @@ public class Holding{
 
 				case 2:
 					for (int b = 0; b<building[0].length && !stop ; b++ ) {
-						if(building[0][b].getName().equals(name) && building[0][b].getEmail().equals(email)){
+						if(building[0][b].getName().equalsIgnoreCase(name) && building[0][b].getEmail().equalsIgnoreCase(email)){
 							extension = building[0][b].getExtension();
 							stop = true;
 						}
@@ -154,7 +185,7 @@ public class Holding{
 
 					while (c<minor && d>=0 && !stop) {
 
-						if(building[c][d].getName().equals(name) && building[c][d].getEmail().equals(email)){
+						if(building[c][d].getName().equalsIgnoreCase(name) && building[c][d].getEmail().equalsIgnoreCase(email)){
 							extension = building[c][d].getExtension();
 							stop = true;
 						}
@@ -165,7 +196,7 @@ public class Holding{
 					}
 
 					for (int a = 0; a<building[0].length && !stop ; a++ ) {
-						if(building[building.length-1][a].getName().equals(name) && building[building.length-1][a].getEmail().equals(email)){
+						if(building[building.length-1][a].getName().equalsIgnoreCase(name) && building[building.length-1][a].getEmail().equalsIgnoreCase(email)){
 							extension = building[building.length-1][a].getExtension();
 							stop = true;
 						}
@@ -177,7 +208,7 @@ public class Holding{
 
 					while (c<minor && d>=0 && !stop) {
 
-						if(building[c][d].getName().equals(name) && building[c][d].getEmail().equals(email)){
+						if(building[c][d].getName().equalsIgnoreCase(name) && building[c][d].getEmail().equalsIgnoreCase(email)){
 							extension = building[c][d].getExtension();
 							stop = true;
 						}
@@ -191,7 +222,7 @@ public class Holding{
 
 					while (c<minor && !stop) {
 
-						if(building[c][c].getName().equals(name) && building[c][c].getEmail().equals(email)){
+						if(building[c][c].getName().equalsIgnoreCase(name) && building[c][c].getEmail().equalsIgnoreCase(email)){
 							extension = building[c][c].getExtension();
 							stop = true;
 						}
@@ -204,7 +235,7 @@ public class Holding{
 				case 4:
 
 					for (int b = 0; b<building[0].length && !stop ; b++ ) {
-						if(building[0][b].getName().equals(name) && building[0][b].getEmail().equals(email)){
+						if(building[0][b].getName().equalsIgnoreCase(name) && building[0][b].getEmail().equalsIgnoreCase(email)){
 							extension = building[0][b].getExtension();
 							stop = true;
 						}
@@ -212,7 +243,7 @@ public class Holding{
 
 
 					for (int i = 0; i<building.length && !stop ; i++ ) {
-						if(building[i][0].getName().equals(name) && building[i][0].getEmail().equals(email)){
+						if(building[i][0].getName().equalsIgnoreCase(name) && building[i][0].getEmail().equalsIgnoreCase(email)){
 							extension = building[i][0].getExtension();
 							stop = true;
 
@@ -221,7 +252,7 @@ public class Holding{
 					}
 
 					for (int j = 0; j<building[0].length && !stop ; j++ ) {
-						if(building[building.length-1][j].getName().equals(name) && building[building.length-1][j].getEmail().equals(email)){
+						if(building[building.length-1][j].getName().equalsIgnoreCase(name) && building[building.length-1][j].getEmail().equalsIgnoreCase(email)){
 							extension = building[building.length-1][j].getExtension();
 							stop = true;
 						}
@@ -229,7 +260,7 @@ public class Holding{
 					}
 
 					for (int a = 0; a<building.length && !stop ; a++ ) {
-						if(building[a][building[0].length-1].getName().equals(name) && building[a][building[0].length-1].getEmail().equals(email)){
+						if(building[a][building[0].length-1].getName().equalsIgnoreCase(name) && building[a][building[0].length-1].getEmail().equalsIgnoreCase(email)){
 							extension = building[a][building[0].length-1].getExtension();
 							stop = true;
 
@@ -245,7 +276,7 @@ public class Holding{
 
 						if (i%2 == 0) {
 							for (int j = 0;j< building[0].length && !stop;j++ ) {
-								if(building[i][j].getName().equals(name) && building[i][j].getEmail().equals(email)){
+								if(building[i][j].getName().equalsIgnoreCase(name) && building[i][j].getEmail().equalsIgnoreCase(email)){
 									extension = building[i][j].getExtension();
 									stop = true;
 
@@ -254,7 +285,7 @@ public class Holding{
 						
 						} else {
 							for (int k = building[0].length-1; k>= 0 && !stop;k-- ) {
-								if(building[i][k].getName().equals(name) && building[i][k].getEmail().equals(email)){
+								if(building[i][k].getName().equalsIgnoreCase(name) && building[i][k].getEmail().equalsIgnoreCase(email)){
 									extension = building[i][k].getExtension();
 									stop = true;
 

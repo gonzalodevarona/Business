@@ -34,27 +34,61 @@ public class Public extends Service implements Taxable{
 		this.subscribers1N2 = subscribers1N2;
 	}
 
+	/**
+	* Allows to get the service business service type. <br>
+	* @return The service business service type
+	*/
+
 	public String getServiceType(){
 		return serviceType;
 	}
+
+
+	/**
+	* Allows to change the service business service type. <br>
+	* <b>post:</b> The service business service type is changed. 
+	* @param serviceType The service business service type.
+	*/
 
 	public void setServiceType(String serviceType){
 		this.serviceType = serviceType;
 	}
 
 
+	/**
+	* Allows to get the service business amount of subscribers. <br>
+	* @return The service business amount of subscribers
+	*/
+
 	public int getTotalSubscribers(){
 		return totalSubscribers;
 	}
 
+
+	/**
+	* Allows to change the service business amount of subscribers. <br>
+	* <b>post:</b> The service business amount of subscribers is changed. 
+	* @param totalSubscribers The service business amount of subscribers
+	*/
 	public void setTotalSubscribers(int totalSubscribers){
 		this.totalSubscribers = totalSubscribers;
 	}
+
+	/**
+	* Allows to get the service business amount of subscribers from 1 and 2 stratums. <br>
+	* @return The service business amount of subscribers from 1 and 2 stratums
+	*/
 
 	public int getSubscribers1N2(){
 		return subscribers1N2;
 	}
 
+	/**
+	* Allows to change the service business amount of subscribers from 1 and 2 stratums. <br>
+	* <b>post:</b> The service business amount of subscribers from 1 and 2 stratums is changed. 
+	* @param subscribers1N2 The service business amount of subscribers from 1 and 2 stratums
+	*/
+	
 	public void setSubscribers1N2(int subscribers1N2){
 		this.subscribers1N2 = subscribers1N2;
 	}
@@ -72,6 +106,15 @@ public class Public extends Service implements Taxable{
 		return tax;
 	}
 
+
+	/**
+	* Public services business informatiom such as service type, total subscribers, address, total subscribers from 1 and 2 stratums, and
+	* procultura tax is organized in a format so it can be shown to the final user<br>
+	* <b>pre:</b> This method must be invocated over an existing business <br>
+	* @see procultura()
+	* @see Service.toString()
+	* @return The information of a public services business in a format to be shown to the final user
+	*/
 
 	@Override
 	public String toString(){

@@ -41,8 +41,25 @@ private Holding holding;
 
 
 	public void init(){
-		Cubicle[][] myBuilding = new Cubicle[7][20];
-		holding = new Holding("DeV co", "Gonzalo De Varona", myBuilding);	
+		Cubicle[][] myBuilding = new Cubicle[3][3];
+		holding = new Holding("DeV co", "Gonzalo De Varona", myBuilding);
+
+		myBuilding[0][0] = new Cubicle("Deacon Rosas","Slave","slave1@dev.co","123");
+		myBuilding[0][1] = new Cubicle("Marley May","Slave","slave2@dev.co","456");
+		myBuilding[0][2] = new Cubicle("Hanna Bryan","Slave","slave3@dev.co","789");
+		myBuilding[1][0] = new Cubicle("Romeo Mcnamara","Slave","slave4@dev.co","101");
+		myBuilding[1][1] = new Cubicle("Hoorain Bate","Slave","slave5@dev.co","112");
+		myBuilding[1][2] = new Cubicle("Skylar Guevara","Slave","slave6@dev.co","121");
+		myBuilding[2][0] = new Cubicle("Wilbur Owen","Slave","slave7@dev.co","141");
+		myBuilding[2][1] = new Cubicle("Jackson Maxwell","Slave","slave8@dev.co","516");
+		myBuilding[2][2] = new Cubicle("Aras Huff","Slave","slave9@dev.co","178");
+
+		DateIn myOpening = new DateIn(24,03,2018);
+		ArrayList<Survey> surveys = new ArrayList<Survey>();
+		Technological myCo = new Technological("WeOut", 647839283, "Infinite loop", "3127061834", 10, 1000000000, myOpening, Business.WR ,"Gonzalo De Varona", myBuilding, surveys, 87654.4,231,21343,234,567,987,654);
+
+		holding.addBusiness(myCo);
+
 
 	}
 

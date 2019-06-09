@@ -25,27 +25,61 @@ public class Survey{
 		this.questionC = questionC;
 	}
 
+
+	/**
+	* Allows to get the question A answer. <br>
+	* @return The question A answer
+	*/
+
 	public int getQuestionA(){
 		return questionA;
 	}
 
+
+	/**
+	* Allows to change question A answer. <br>
+	* <b>post:</b> The question A answer is changed. 
+	* @param questionA The question A answer
+	*/
 	public void setQuestionA(int questionA){
 		this.questionA = questionA;
 	}
 
 
+	/**
+	* Allows to get the question B answer. <br>
+	* @return The question B answer
+	*/
 	public int getQuestionB(){
 		return questionB;
 	}
 
+
+	/**
+	* Allows to change question B answer. <br>
+	* <b>post:</b> The question B answer is changed. 
+	* @param questionB The question B answer
+	*/
 	public void setQuestionB(int questionB){
 		this.questionB = questionB;
 	}
+
+
+	/**
+	* Allows to get the question C answer. <br>
+	* @return The question C answer
+	*/
+
 
 	public int getQuestionC(){
 		return questionC;
 	}
 
+	/**
+	* Allows to change question C answer. <br>
+	* <b>post:</b> The question C answer is changed. 
+	* @param questionC The question C answer
+	*/
 	public void setQuestionC(int questionC){
 		this.questionC = questionC;
 	}
